@@ -1,6 +1,7 @@
 import { MenuNav } from 'components/Menu/MenuNav';
 import classNames from 'classnames/bind';
 import styles from './Header.module.scss';
+import * as Icon from 'components/Icons/Icon';
 
 const cx = classNames.bind(styles);
 
@@ -38,17 +39,17 @@ function Header() {
                     </div>
                     <div className={cx('manipulation')}>
                         <div className={cx('icon__plus')}>
-                            <i className={cx('fa-solid fa-plus ')}></i>
-                            {/* <ShowMenuPlus /> */}
+                            <i className={cx('fa-solid fa-plus')}></i>
                         </div>
                         <div className={cx('change__languages')}>
                             <span className={cx('text')}>VI</span>
                         </div>
                         <div className={cx('login')}>Login</div>
                         <div className={cx('register')}>Register TMDB</div>
-                        <div className={cx('icon__search')}>
-                            <i className={cx('fa-solid fa-magnifying-glass')}></i>
-                        </div>
+                        <div
+                            className={cx('icon__search')}
+                            style={{ backgroundImage: `url(${Icon.searchIcon})` }}
+                        ></div>
                     </div>
                 </div>
             </header>
