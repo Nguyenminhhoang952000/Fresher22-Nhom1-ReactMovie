@@ -53,7 +53,6 @@
         padding-right: 40px;
 
         .icon__plus,
-        .icon__search,
         .change__languages,
         .login,
         .register {
@@ -67,8 +66,11 @@
             position: relative;
         }
         .icon__search {
+            cursor: pointer;
             color: rgb(1, 180, 228);
             font-size: 20px;
+            width: 29px;
+            height: 29px;
         }
         .change__languages {
             border: 1px solid #fff;
