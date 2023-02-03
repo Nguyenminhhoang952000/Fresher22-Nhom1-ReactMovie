@@ -1,0 +1,101 @@
+.wrapper {
+    margin-top: 63px;
+    display: flex;
+    justify-content: center;
+}
+.contents {
+    display: flex;
+    flex-direction: row;
+    padding: 30px 40px;
+}
+.personalInformation {
+    min-width: 300px;
+    width: 300px;
+    .img {
+        width: 300px;
+        height: 450px;
+        border-radius: 8px;
+    }
+    .personalInfor {
+        padding-top: 30px;
+        .titleInfor {
+            font-size: 1.3em;
+        }
+        .theP {
+            display: flex;
+            flex-direction: column;
+            font-size: 1em;
+            margin-bottom: 20px;
+        }
+        .theDiv {
+            display: flex;
+            align-items: center;
+            flex-direction: row;
+            margin-top: 25px;
+            cursor: pointer;
+            .btnEdit {
+                width: 8em;
+                height: 2.5em;
+                color: #fff;
+                font-weight: 700;
+                background-color: rgb(1, 180, 228);
+                border-radius: 20px;
+                cursor: pointer;
+            }
+            .btnEdit:hover {
+                background-color: black;
+            }
+            .text {
+                opacity: 0.5;
+                color: #000;
+            }
+            .text:hover {
+                color: green;
+            }
+        }
+    }
+}
+.personalWrapper {
+    width: 100%;
+    max-width: 920px;
+    padding-left: 30px;
+    .titleName {
+        font-weight: 700;
+        font-size: 2.2em;
+    }
+    .personalProfileContent {
+        position: relative;
+        margin-top: 30px;
+        h3 {
+            font-weight: 600;
+            font-size: 1.3em;
+            margin-bottom: 8px;
+        }
+        .creditsFilters {
+            position: absolute;
+            right: 0;
+            top: 0;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            column-gap: 20px;
+            cursor: pointer;
+            .listFiters {
+                display: flex;
+                align-items: center;
+            }
+            .listFiters:hover {
+                opacity: 0.7;
+            }
+        }
+    }
+}
+.personalListMovie {
+    display: flex;
+    flex-direction: row;
+    column-gap: 10px;
+    overflow-x: auto;
+    transition: all 0.3 linear;
+    transform: center left;
+    scroll-behavior: smooth;
+}

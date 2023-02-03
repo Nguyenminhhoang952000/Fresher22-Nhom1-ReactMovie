@@ -17,6 +17,27 @@ function MenuNav() {
         </div>
     );
 }
+function MenuAll() {
+    return (
+        <div className={cx('nav__item--menu')}>
+            <ul className={cx('menu__list')}>
+                <li className={cx('menu__item')}>Movies</li>
+                <li className={cx('menu__item')}>TV Show</li>
+            </ul>
+        </div>
+    );
+}
+function MenuDepartment() {
+    return (
+        <div className={cx('nav__item--menu')}>
+            <ul className={cx('menu__list')}>
+                <li className={cx('menu__item')}>Now playing</li>
+                <li className={cx('menu__item')}>Upcoming</li>
+                <li className={cx('menu__item')}>Top Rate</li>
+            </ul>
+        </div>
+    );
+}
 
 function ShowMenuPlus() {
     return (
@@ -29,4 +50,4 @@ function ShowMenuPlus() {
 
 export default ShowMenuPlus;
 
-export { MenuNav, ShowMenuPlus };
+export { MenuNav, ShowMenuPlus, MenuAll, MenuDepartment };

@@ -1,15 +1,14 @@
 @import 'normalize.css';
 
 :root {
-    --header-hight:64px;
-
-
+    --header-hight: 64px;
     --white: #fff;
     --color-primary-dark: rgb(3, 37, 65);
     --font-color: #333;
-    --black:black;
+    --black: black;
     --tmdbLightBlue: 1, 180, 228;
     --tmdbDarkBlue: 3, 37, 65;
+    --lightGrey: 227, 227, 227;
 }
 * {
     box-sizing: border-box;

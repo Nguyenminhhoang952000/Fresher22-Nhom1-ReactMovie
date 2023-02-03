@@ -1,0 +1,24 @@
+.imgMovie {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .titleMovie {
+        font-size: 1em;
+        cursor: pointer;
+    }
+    .titleMovie:hover {
+        color: rgb(0, 166, 255);
+    }
+}
+.itemMovie {
+    width: 130px;
+    height: 195px;
+
+    img {
+        width: 100%;
+        height: 100%;
+        border-radius: 8px;
+        cursor: pointer;
+    }
+}

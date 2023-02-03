@@ -1,0 +1,35 @@
+.wrapper {
+    width: 100%;
+    box-shadow: 0 2px 8px rgb(0 0 0 / 10%);
+    border: 1px solid rgba(var(--lightGrey), 1);
+}
+
+.credit_group {
+    text-align: center;
+    padding: 10px 0;
+    width: 100%;
+    margin: 0;
+    border-collapse: separate;
+    border-bottom: 1px solid #dedede;
+}
+
+.itemNameMovie {
+    display: flex;
+    flex-direction: row;
+    column-gap: 8px;
+    padding: 0 10px;
+    width: 100%;
+    .iconCircle {
+        display: inline-flex;
+        align-items: center;
+        font-size: 10px;
+        font-weight: 700;
+        cursor: pointer;
+    }
+    .movieName {
+        font-weight: 600;
+    }
+    .movieName:hover {
+        color: rgb(0, 166, 255);
+    }
+}
