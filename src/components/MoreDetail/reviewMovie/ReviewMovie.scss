@@ -1,0 +1,32 @@
+.content{
+   
+}
+.reviewMove{
+    width: 1070px;
+    margin: 0px 30px;
+    margin-top: -580px; 
+    border-bottom: 1px solid rgba(0, 0, 0, 0.100);
+}
+
+.menu{
+    display: flex;
+
+    h3 {
+        margin-right: 50px;
+        margin-top: 20px;
+    }
+    p{
+        margin-right: 50px;
+        margin-top: 20px;
+        border-bottom: 4px solid black;
+    }
+
+} 
+
+.contents{
+    border: 1px solid rgba(0, 0, 0, 0.100);
+    border-radius: 10px;
+    margin: 10px 0px;
+    padding: 10px;
+}
+

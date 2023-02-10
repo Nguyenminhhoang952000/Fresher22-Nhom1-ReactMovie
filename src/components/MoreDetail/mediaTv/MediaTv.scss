@@ -1,0 +1,20 @@
+.mediaTv{
+    width: 1070px;
+    margin: 30px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.100);
+    z-index: 999;
+    padding-top: 20px;
+    
+}
+
+.mediaTvMenu{
+    width: 500px; 
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.mediaTvImg{
+    padding: 10px 0px;
+    margin-bottom: 10px;
+}

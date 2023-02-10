@@ -1,0 +1,51 @@
+.Recommendations {
+    h2 {
+        margin-left: 20px;
+    }
+
+    .container {
+        margin: 20px;
+        padding-bottom: 14px;
+        display: flex;
+        width: 1067px;
+        // overflow-x: auto; 
+        overflow-y: hidden;
+        scrollbar-width: thin;
+
+        ::-webkit-scrollbar {
+            width: 10px;
+            height: 2px;
+        }
+
+        .item {
+            margin: 0px 10px;
+
+            img {
+                border-radius: 7px;
+
+            }
+            p {
+                justify-content: space-between;
+
+                span {
+                    margin: 0px 20px;
+                }
+            }
+        }
+    }
+}
+
+.container ::-webkit-scrollbar {
+    width: 6px;
+    background-color: #F5F5F5;
+    height: 3px;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: blue; 
+  }

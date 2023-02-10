@@ -1,0 +1,83 @@
+.ColumnRight {
+  margin-left: 1150px;
+  margin-top: -840px;
+  width: 260px;
+  background: '';
+
+  .icon {
+    justify-content: space-between;
+    white-space: nowrap;
+
+    img {
+      width: 30px;
+      height: 30px;
+      margin: 0px 10px;
+
+    }
+  }
+
+  .ColumnRight-text {
+    margin: 25px 15px;
+
+    ul {
+      list-style: none;
+      font-size: 17px;
+
+      li {
+        margin: 20px 0px;
+        font-weight: 600;
+        font-family: 'Source Sans Pro', Arial, sans-serif;
+
+        p {
+          font-family: 'Courier New', Courier, monospace;
+        }
+
+        .texList {
+
+          ul {
+            width: 260px;
+            display: flex;
+            flex-wrap: wrap;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.158);
+            padding-bottom: 30px;
+          }
+
+          li {
+            font-size: 0.7em;
+            padding: 4px 10px;
+            border: 1px solid rgba(0, 0, 0, 0.144);
+            border-radius: 5px;
+            background: #e5e5e5;
+            margin: 8px;
+            margin-left: 0px;
+          }
+
+
+
+        }
+      }
+
+      
+    }
+.texBottom {
+        ul {
+
+          li {
+            margin: 40px 0px;
+          }
+        }
+      }
+
+    .texList {
+
+      ul {
+        list-style: none;
+      }
+
+    }
+  }
+}
+
+.ColumnRight .ColumnRight-text .texBottom ul li {
+  margin: 33px 0px;
+}
