@@ -1,7 +1,7 @@
 import classNames from 'classnames/bind';
 import { useRef } from 'react';
-import Button from 'components/Button/Button';
 import styles from './Home.module.scss';
+import InputSearch from 'components/InputSearch/InputSearch';
 
 const cx = classNames.bind(styles);
 
@@ -21,19 +21,9 @@ function Introduce() {
                         </div>
 
                         <div className={cx('search')}>
-                            <form className={cx('inner_search_form')}>
-                                <label>
-                                    <input
-                                        placeholder="Search for a movie, tv show, person......"
-                                        className={cx('input')}
-                                    />
-                                </label>
-                                <div className={cx('btn__search')}>
-                                    <Button primary rounded big>
-                                        Search
-                                    </Button>
-                                </div>
-                            </form>
+                            <div className={cx('search-block')}>
+                                <InputSearch inputSearch inputSub className="search-content" />
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -177,7 +177,7 @@
     }
     .trailer__content::-webkit-scrollbar-thumb {
         height: 5px;
-        background-color: #dcd7d7;;
+    background-color: #dcd7d7;;
     }
     .trailer__content::-webkit-scrollbar{
         width: 10px;
@@ -195,4 +195,17 @@
             width: 50%;
         }
     }
+}
+
+// Intro
+.search{
+    top:var(--header-hight);
+    width: 100%;
+    display: flex;
+    left: 0;
+    justify-content: center;
+}
+.search-block{
+    width: 100%;
+    padding: 0 40px;
 }

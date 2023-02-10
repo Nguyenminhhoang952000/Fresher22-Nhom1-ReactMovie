@@ -33,8 +33,6 @@ function LatestTrailers({ title, cate, type, titleButton }) {
             fetch(type);
         }
     }, []);
-    console.log('onTv', isDataOntv);
-    console.log('thress', isDataInThreaters);
     return (
         <div
             className={cx('trailer')}

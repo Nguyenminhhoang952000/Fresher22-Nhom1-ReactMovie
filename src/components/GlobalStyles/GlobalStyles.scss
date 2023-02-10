@@ -2,8 +2,9 @@
 
 :root {
     --header-hight:64px;
-
+    --header-search-item : 108px;
     --font-size-default: 0.9em;
+    --maxPrimaryPageWidth: 1400px;
     --font-color: #333;
     --white:#fff;
     --black:black;
@@ -34,7 +35,7 @@
     --maxPrimaryPageWidth: 1400px;
     --discoverColumnPadding: 30px;
     --numberOfDiscoverColumns: 5;
-
+    --imageBorderRadius: 8px;
     --default-boxshadow: 0 2px 8px rgb(0 0 0 / 10%);
 }
 * {
@@ -97,4 +98,43 @@ input,
 a {
     color: var(--black);
     text-decoration: none;
+}
+#tippy-1{
+    // position: relative;
+    width: 100%;
+}
+ul li{
+    list-style-type:none;
+}
+.pagination{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    cursor: pointer;
+    .active{
+        background-color:rgb(74, 220, 220);
+        border-radius: 2px;
+        a{
+            opacity: 0.7;
+        }
+    }
+    li{
+        padding:5px 10px;
+    }
+}
+@keyframes scrollHeaderUp{
+    0%{
+        top:0;
+    }
+    100%{
+        top:-64px;
+    }
+}
+@keyframes scrollHeaderDown{
+    0%{
+        top:-64px;
+    }
+    100%{
+        top:0;
+    }
 }

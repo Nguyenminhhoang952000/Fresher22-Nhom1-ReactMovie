@@ -36,7 +36,6 @@ function ListFilm({ title, cate, type, titleButton }) {
             fetch('tv');
         }
     }, []);
-
     return (
         <div className={cx('trending')}>
             <TabMain
@@ -48,7 +47,11 @@ function ListFilm({ title, cate, type, titleButton }) {
                         title: <HeaderStyle title={titleButton?.today} />,
                         content: (
                             <div className={cx('trending__content')}>
-                                {isDataDay.length === 0 ? '' : <CardFilm size="small" list={isDataDay} small />}
+                                {isDataDay.length === 0 ? (
+                                    ''
+                                ) : (
+                                    <CardFilm cate={cate.length > 0 && cate} size="small" list={isDataDay} small />
+                                )}
                                 <div className={cx('shadow')}></div>
                             </div>
                         ),
@@ -60,7 +63,7 @@ function ListFilm({ title, cate, type, titleButton }) {
                                 {isDataThisWeek.length === 0 ? (
                                     ''
                                 ) : (
-                                    <CardFilm size="small" list={isDataThisWeek} small />
+                                    <CardFilm size="small" list={isDataThisWeek} cate={cate.length > 0 && cate} small />
                                 )}
                                 <div className={cx('shadow')}></div>
                             </div>

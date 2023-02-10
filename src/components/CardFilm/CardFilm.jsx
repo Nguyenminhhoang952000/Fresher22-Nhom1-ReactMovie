@@ -8,7 +8,7 @@ import { Link, useNavigate } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
 
-function CardFilm({ list, small = false, medium = false }) {
+function CardFilm({ cate, list, small = false, medium = false }) {
     const navigate = useNavigate();
     const classes = cx('cdstl1', {
         small,
@@ -26,6 +26,7 @@ function CardFilm({ list, small = false, medium = false }) {
     } else {
         idLocalMovies = JSON.parse(idLocalMovies);
     }
+
     return (
         <>
             {list.map((item) => (
@@ -39,7 +40,7 @@ function CardFilm({ list, small = false, medium = false }) {
                                         idLocalMovies = [];
                                         idLocalMovies.push(item.id);
                                         window.localStorage.setItem('idMovies', JSON.stringify(idLocalMovies));
-                                        navigate(tmdbApi.LinkOverViewMovie(item.id, item.original_title));
+                                        navigate(`${cate}/${tmdbApi.LinkOverViewMovie(item.id, item.original_title)}`);
                                     }}
                                 >
                                     <img

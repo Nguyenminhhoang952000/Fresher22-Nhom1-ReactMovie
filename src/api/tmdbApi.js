@@ -3,8 +3,17 @@ import apiConfig from './apiConfig';
 export const category = {
     movie: 'movie',
     tv: 'tv',
+    all: 'all',
 };
-
+export const searchOption = {
+    movie: 'movie',
+    tv: 'tv',
+    company: 'company',
+    collection: 'collection',
+    keyword: 'keyword',
+    multi: 'multi',
+    person: 'person',
+};
 export const movieType = {
     upcoming: 'upcoming',
     popular: 'popular',
@@ -31,7 +40,7 @@ const tmdbApi = {
         return axiosClient.get(url, { params: {} });
     },
     search: (cate, params) => {
-        const url = `search/'${category[cate]}?api_key=${apiConfig.apiKey}`;
+        const url = `search/${searchOption[cate]}?api_key=${apiConfig.apiKey}`;
         return axiosClient.get(url, params);
     },
     detail: (cate, id, params) => {
