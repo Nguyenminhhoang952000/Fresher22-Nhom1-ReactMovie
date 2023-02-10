@@ -1,35 +1,88 @@
 import React from 'react';
-import classNames from 'classnames/bind';
+import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import { FaKeyboard } from 'react-icons/fa';
 import { MdOutlineReport } from 'react-icons/md';
 import { RiArrowDownSFill } from 'react-icons/ri';
+import { BiChevronRight } from 'react-icons/bi';
 import { MenuAll, MenuDepartment } from 'components/Menu/MenuNav';
 import PersonalListMovie from 'components/PersonalListMovie/PersonalListMovie';
 import styles from './PersonProfile.module.scss';
+import classNames from 'classnames/bind';
 import PersonalMovie from 'components/PersonalMovie/PersonalMovie';
 import Information from './Information';
-
+import tmdbApi from 'api/tmdbApi';
+import apiConfig from 'api/apiConfig';
 const cx = classNames.bind(styles);
 const PersonProfile = () => {
+    const [personValue, setPersonValue] = useState([]);
+    const [personMovie, setPersonMovie] = useState({});
+    const [personTV, setPersonTV] = useState({});
+    const { id } = useParams();
+    console.log('id', id);
+    useEffect(() => {
+        const person_id = id.split('-')[0];
+        const fetchPersonProfile = async () => {
+            if (id) {
+                try {
+                    const responsePerson = await tmdbApi.person(person_id);
+                    const responseMovie = await tmdbApi.personCredits(person_id);
+                    const responseTV = await tmdbApi.personCreditsTV(person_id);
+                    setPersonValue(responsePerson);
+                    setPersonMovie(responseMovie);
+                    setPersonTV(responseTV);
+                } catch (error) {
+                    console.log('Failed to fetch people:', error);
+                }
+            }
+        };
+        fetchPersonProfile();
+    }, [id]);
     return (
         <div className={cx('wrapper')}>
             <div className={cx('contents')}>
                 <div className={cx('personalInformation')}>
                     <img
-                        src="https://www.themoviedb.org/t/p/w300_and_h450_bestv2/oTB9vGIBacH5aQNS0pUM74QSWuf.jpg"
-                        alt=""
+                        src={apiConfig.originalImage(personValue.profile_path)}
+                        alt={personValue.name}
                         className={cx('img')}
                     />
                     <div className={cx('personalInfor')}>
                         <section>
                             <h3 className={cx('titleInfor')}>Personal Info</h3>
                             <section>
-                                <Information bbi="Known For" info="Acting" />
+                                <Information bbi="Known For" info={personValue.known_for_department} />
                                 <Information bbi="Known Credits" info="188" />
-                                <Information bbi="Gender" info="male" />
-                                <Information bbi="Birthday" info="1963-12-18 (59 years old)" />
-                                <Information bbi="Place of Birth" info=" Shawnee, Oklahoma, USA" />
-                                <Information bbi="Also Known As" info="William Bradley Pitt" />
+                                <Information bbi="Gender" info={personValue.gender === 1 ? 'Female' : 'Male'} />
+                                <Information
+                                    bbi="Birthday"
+                                    info={`${personValue?.birthday} ${
+                                        personValue?.deathday
+                                            ? ''
+                                            : `(${
+                                                  Number(new Date().getFullYear()) -
+                                                  Number(personValue?.birthday?.split('-')[0])
+                                              } years old)`
+                                    }
+                                    `}
+                                />
+
+                                {personValue.deathday && (
+                                    <Information
+                                        bbi="Day of Death"
+                                        info={`${personValue?.deathday} ${
+                                            !personValue?.deathday
+                                                ? ''
+                                                : `(${
+                                                      Number(personValue?.deathday?.split('-')[0]) -
+                                                      Number(personValue?.birthday?.split('-')[0])
+                                                  } years old)`
+                                        }
+                                    `}
+                                    />
+                                )}
+                                <Information bbi="Place of Birth" info={personValue.place_of_birth} />
+                                <Information bbi="Also Known As" info={personValue.also_known_as} />
                             </section>
                             <div className={cx('theDiv')}>
                                 <button className={cx('btnEdit')}>EDIT PAGE</button>
@@ -47,16 +100,14 @@ const PersonProfile = () => {
                 </div>
                 <div className={cx('personalWrapper')}>
                     <div className={cx('personalProfile')}>
-                        <h2 className={cx('titleName')}>Brad Pitt</h2>
+                        <h2 className={cx('titleName')}>{personValue.name}</h2>
                         <section className={cx('personalProfileContent')}>
                             <h3>Biography</h3>
-                            <span>
-                                William Bradley Pitt (born December 18, 1963) is an American actor and film producer. He
-                                is the recipient of various accolades, including an Academy Award, a British Academy
-                                Film Award, and two Golden Globe Awards for his acting, in addition to a second Academy
-                                Award, a second British Academy Film Award, a third Golden Globe Award, and a Primetime
-                                Emmy Award as a producer under his production company, Plan B Entertainment.
-                            </span>
+                            <span>{personValue.biography}</span>
+                            <div className={cx('readMore')}>
+                                <span>Read More</span>
+                                <BiChevronRight className={cx('icon')} />
+                            </div>
                         </section>
                         <section className={cx('personalProfileContent')}>
                             <h3>Known For</h3>
@@ -75,7 +126,7 @@ const PersonProfile = () => {
                         </section>
                         <section className={cx('personalProfileContent')}>
                             <div className={cx('creditsList')}>
-                                <PersonalListMovie title="Acting" />
+                                <PersonalListMovie data={!!Object.keys(personMovie) && personMovie} />
                             </div>
                             <div className={cx('creditsFilters')}>
                                 <div className={cx('listFiters')}>
@@ -84,12 +135,12 @@ const PersonProfile = () => {
                                 <div className={cx('listFiters')}>
                                     <span>All</span>
                                     <RiArrowDownSFill />
-                                    <MenuAll />
+                                    <MenuAll className={cx('menu')} />
                                 </div>
                                 <div className={cx('listFiters')}>
                                     <span>Department</span>
                                     <RiArrowDownSFill />
-                                    <MenuDepartment />
+                                    <MenuDepartment className={cx('menu')} />
                                 </div>
                             </div>
                         </section>

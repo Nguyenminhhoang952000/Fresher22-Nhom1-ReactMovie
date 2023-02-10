@@ -3,18 +3,21 @@ import styles from './PersonalListMovie.module.scss';
 import { BsCircle } from 'react-icons/bs';
 
 const cx = classNames.bind(styles);
-const ItemTableMovie = () => {
+const ItemTableMovie = ({ dataItem }) => {
     return (
-        <div className={cx('itemNameMovie')}>
-            <p>—</p>
-            <p className={cx('iconCircle')}>
-                <BsCircle />
-            </p>
-            <p>
-                <span className={cx('movieName')}>Surrounded</span>
-                <span> </span>
-            </p>
-        </div>
+        <>
+            <div className={cx('itemNameMovie')}>
+                <p className={cx('itemYear')}>{dataItem?.release_date?.split('-')[0] || '--'}</p>
+                <p className={cx('iconCircle')}>
+                    <BsCircle />
+                </p>
+                <p>
+                    <span className={cx('movieName')}>{dataItem?.title}</span>
+                    &nbsp;
+                    <span>{dataItem.character ? `as ${dataItem?.character}` : ''} </span>
+                </p>
+            </div>
+        </>
     );
 };
 export default ItemTableMovie;

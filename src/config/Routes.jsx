@@ -8,7 +8,7 @@ const Routes = () => {
     return (
         <Router>
             <Route path="/:category/:id" element={<Detail />} />
-            <Route path="/:category/:id/casts" element={<Profile />} />
+            <Route path="/person/:id" element={<Profile />} />
             <Route path="/search" element={<Search />} />
             <Route path="/" exact element={<Home />} />
         </Router>

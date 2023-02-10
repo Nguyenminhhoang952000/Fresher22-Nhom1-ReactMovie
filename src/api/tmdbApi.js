@@ -1,3 +1,4 @@
+import apiConfig from './apiConfig';
 import axiosClient from './axiosClient';
 
 export const category = {
@@ -45,6 +46,18 @@ const tmdbApi = {
     similar: (cate, id) => {
         const url = category[cate] + '/' + id + '/similar';
         return axiosClient.get(url, { params: {} });
+    },
+    person: (id) => {
+        const url = `person/${id}?api_key=${apiConfig.apiKey}`;
+        return axiosClient.get(url);
+    },
+    personCredits: (id) => {
+        const url = `person/${id}/movie_credits?api_key=${apiConfig.apiKey}`;
+        return axiosClient.get(url);
+    },
+    personCreditsTV: (id) => {
+        const url = `person/${id}/tv_credits?api_key=${apiConfig.apiKey}`;
+        return axiosClient.get(url);
     },
 };
 

@@ -2,6 +2,12 @@
     width: 100%;
     box-shadow: 0 2px 8px rgb(0 0 0 / 10%);
     border: 1px solid rgba(var(--lightGrey), 1);
+    margin-top: -1px;
+}
+.content {
+    width: 100%;
+    border: 1px solid rgba(var(--lightGrey), 1);
+    margin-top: -1px;
 }
 
 .credit_group {
@@ -9,8 +15,6 @@
     padding: 10px 0;
     width: 100%;
     margin: 0;
-    border-collapse: separate;
-    border-bottom: 1px solid #dedede;
 }
 
 .itemNameMovie {
@@ -19,6 +23,9 @@
     column-gap: 8px;
     padding: 0 10px;
     width: 100%;
+    .itemYear {
+        min-width: 40px;
+    }
     .iconCircle {
         display: inline-flex;
         align-items: center;
@@ -26,10 +33,17 @@
         font-weight: 700;
         cursor: pointer;
     }
+    .iconCircle:hover {
+        svg {
+            background-color: black;
+            border-radius: 50%;
+        }
+    }
     .movieName {
         font-weight: 600;
     }
     .movieName:hover {
         color: rgb(0, 166, 255);
+        cursor: pointer;
     }
 }

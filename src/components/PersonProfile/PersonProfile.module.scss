@@ -99,3 +99,24 @@
     transform: center left;
     scroll-behavior: smooth;
 }
+.readMore {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    color: rgb(15, 215, 215);
+    span:hover {
+        color: #32ce49;
+        cursor: pointer;
+    }
+    .icon {
+        font-size: 22px;
+    }
+}
+.info_also-known {
+    list-style-type: none;
+    opacity: 0.8;
+    & + .info_also-known {
+        padding-top: 3px;
+    }
+}
